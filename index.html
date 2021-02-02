@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+<meta charset="UTF-8">
+<title>Material Manager</title> 
+<meta charset="UTF-8">
+<meta name="description" content="MyPrj">
+<meta name="keywords" content="tbd">
+<meta name="author" content="T">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&family=Ubuntu&family=Work+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+<link rel="stylesheet" href="basic.css">
+</head>
+
+<body>
+
+  <div id="data-loader">
+      Loading data...
+    <div class="progress">
+      <div class="bg-danger progress-bar progress-bar-striped" id="progress-bar"></div>
+    </div>
+  </div>
+
+<label for="load-data" class="custom-file-upload"><i class="fas fa-cloud-upload-alt"></i> Load data</label>
+<input type="file" id="load-data">
+<button type="button" id="save-data" class="custom-file-save">
+<i class="fas fa-cloud-download-alt" aria-hidden="true"></i>&nbsp;Save data
+</button>
+
+
+
+<!--ADD INGREDIENT CATEGORY MODAL-->
+<div class="modal" id="ingredient-category">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add ingredient category</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="ingredient-category-name">Category name:</label>
+          <input type="text" class="form-control" id="ingredient-category-name" placeholder="Category name">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <form>
+          <button type="button" class="btn btn-outline-success" id="add-category"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Add category</button>
+          <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--ADD INGREDIENT ITEM MODAL-->
+<div class="modal" id="ingredient-item">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add ingredient</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="category-options">Select category:</label>
+          <select class="form-control" id="category-options">  
+          </select>
+          <label for="ingredient-item-name">Ingredient name:</label>
+          <input type="text" class="form-control" id="ingredient-item-name" placeholder="Ingredient name">
+          <button type="button" class="btn btn-outline-success btn-sm" id="add-ingredient-property">+ Add ingredient property</button>
+          <button type="button" class="btn btn-outline-success btn-sm" id="add-ingredient-comment">+ Add comment/description</button>
+        </div>
+        <div id="property-box">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span id="confirmation">Saved!</span>
+        <button type="button" class="btn btn-outline-success" id="save-ingredient"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Add item</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--REMOVE RECIPE ITEM MODAL-->
+<div class="modal" id="remove-recipe-item">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Remove recipe ingredient</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="category-options">Select Ingredient:</label>
+          <select class="form-control" id="recipe-items-remove">  
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" id="remove-recipe-ingredient"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Remove ingredient</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--ADD RECIPE ITEM MODAL-->
+<div class="modal" id="add-recipe-item">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add recipe ingredient</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="category-options">Select Ingredient:</label>
+          <select class="form-control" id="recipe-items-add">  
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" id="add-recipe-ingredient"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Add ingredient</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--ADD RECIPE MODAL-->
+<div class="modal" id="new-recipe">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">New recipe</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="recipe-name">Recipe name:</label>
+          <input type="text" id="recipe-name" class="form-control" placeholder="Name the recipe">
+        </div>
+        <div class="form-group">
+          <label for="recipe-description">Description:</label>
+          <textarea type="text" id="recipe-description" rows="5" class="form-control" placeholder="Description..."></textarea>
+        </div>
+        <div id="tree-container">
+          <ul id="tree-struct">
+          </ul>
+        </div>
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" id="create-recipe"><i class="fa fa-check-square-o" aria-hidden="true"></i>&nbsp;Create recipe</button>
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="header">
+  <div class="heading">
+    <h1>ingredience</h1>
+    <div class="btn-group l">
+      <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#ingredient-category"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add ingredient category</button>
+      <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#ingredient-item"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;Add ingredient item</button>
+    </div>
+  </div>
+  <div class="heading">
+    <h1>recepty</h1>
+    <div class="btn-group r">
+      <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#new-recipe"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp;New recipe</button>
+    </div>
+  </div>
+</div>
+
+<div id="ingredient-side">
+</div>
+
+<div id="recipe-side">
+</div>
+
+
+<script src="main-script.js"></script>
+</body>
+</html>

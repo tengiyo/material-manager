@@ -1,0 +1,130 @@
+body, html {width: 100%; height: 100%; position: relative; font-family: 'Open Sans', sans-serif;}
+h1 {display: inline-block; font-size: 60pt; font-family: Arial; color: rgba(255, 255, 255, 0.8);}
+h2 {font-size: 12pt; font-weight: bold; color: #666; padding-top: 1em;}
+hr {border-top: 1px solid #090; width: 85%;}
+button {cursor: pointer;}
+input[type="text"], textarea {border-radius: 0;}
+
+label {font-size: 11pt; color: #888;}
+[contenteditable] {outline: 0;}
+
+tr, td {border: 0; font-weight: bold;}
+.table {border-collapse: separate; border-spacing: 0px;}
+.table td {padding: 0.75rem; vertical-align: middle; box-sizing: border-box;}
+td:nth-child(1) {width: 25%; background-color: #f4ffff; color: #08a; border: 1px solid #fff;}
+td:nth-child(1)::first-letter {text-transform: uppercase;}
+td:nth-child(2) {width: 50%; color: #666; border: 1px solid #fff; background-color: #e1fee3;}
+td:nth-child(3) {width: 25%; background-color: #fdfdfd; border: 0;}
+tr:nth-last-child(-n+1) td {background-color: #fff;}
+
+
+.btn-edit {float: left; margin-right: 5px;}
+.bottom-right {position: absolute; bottom: 1em; right: 1em;}
+.left {width: 48%; float: left;}
+.right {width: 48%; float: right;}
+
+#show-hide {display: block;}
+.toggle-loader {position: fixed; top: 4em; right: 1em; z-index: 999;}
+.control-inputs {width: 15%; padding: 0.5em; position: fixed; top: 3.55em; right: 8em; z-index: 999;}
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload, .custom-file-save {z-index: 999; color: #fff; background-color: #09c; position: fixed; top: 6.4em; font-size: 12pt; border-radius: 3px; display: inline-block; padding: 6px 12px; cursor: pointer;}
+.custom-file-upload {right: 8.5em;}
+.custom-file-save {border: 0; right: 0.5em; height: 36px;}
+.custom-file-upload i, .custom-file-save i {color: #09c;}
+.custom-file-upload:hover i, .custom-file-save:hover i {color: #fff;}
+
+#data-loader {visibility: hidden; animation-duration: 1.5s; animation-iteration-count: 1; animation-fill-mode: forwards; position: absolute; width: 400px; height: 50px; top: 40%; left: 40%; color: #666; text-align: center;}
+#progress-bar {animation-duration: 1.5s; animation-iteration-count: 1; animation-fill-mode: forwards; animation-timing-function: cubic-bezier(0.1, 0.7, 1.0, 0.1);}
+#confirmation {visibility: hidden; color: #090; font-weight: bold; animation-duration: 1s; animation-iteration-count: 1; animation-fill-mode: backwards; animation-direction: alternate;}
+@keyframes show-loader {
+    from {display: block; visibility: visible;}
+    to {display: none; visibility: hidden;}
+}
+@keyframes loading {
+    from {width: 0%;}
+    to {width: 100%; display: none;}
+}
+@keyframes confirmation {
+    from {visibility: hidden;}
+    to {visibility: visible;}
+}
+
+
+#ingredient-side {float: left; clear: left; width: 50%;}
+#recipe-side {float: right; clear: right; width: 50%;}
+#recipe-form-control {width: 50%; margin: auto; margin-top: 1em;}
+
+.header {width: 100%; box-sizing: border-box;}
+.heading {width: 50%; display: inline-block;}
+.heading:nth-child(1) {float: left; background-color: #090; text-align: left;}
+.heading:nth-child(2) {float: right; background-color: #09c; text-align: right;}
+.btn-group {margin-top: 1em;}
+.l {float: right; margin-right: 1em;}
+.r {float: left; margin-left: 1em;}
+td .btn-group {float: right; margin-top: 0em;}
+td .btn-group button i, .content .btn-group button i {margin-top: 4px; margin-right: 5px;}
+.content .btn-group {float: right; margin-bottom: 0.5em;}
+#recipe-side .btn-group {float: right; margin: 0.5em;}
+.form-group button {margin-top: 10px; margin-bottom: 1em;}
+
+.form-group label {margin-top: 1em;}
+.form-group label:first-child {margin-top: 0;}
+
+#property-box input {width: 49%; display: inline-block; margin-bottom: 1em;}
+#property-box textarea {margin-bottom: 1em; border-radius: 0;}
+#property-box input[placeholder="Property name"] {float: left; clear: left;}
+#property-box input[placeholder="Property value"] {float: right; clear: right;}
+#add-ingredient-comment {float: right; margin-top: 2em;}
+#add-ingredient-property {float: left; margin-top: 2em;}
+
+.description-text {margin-left: 2.5em; text-align: justify; font-size: 12pt; width: 73%;  background-image: linear-gradient(180deg, #fafafa, #fff); padding: 0.5em;}
+.recipe-cat-name, .recipe-item-name, .recipe-action-node {display: inline-block; height: 40px; padding-top: 8px;}
+.recipe-cat-name {width: 30%; color: #08a; font-weight: bold; background-color: rgba(240, 255, 255, 0.7); padding-left: 1em;}
+.recipe-item-name {border-left: 1px solid #fff; width: 50%; background-image: linear-gradient(to right, rgba(100, 255, 100, 0.2), #fff); padding-left: 1em; color: #666; font-weight: bold;}
+.recipe-item-name:hover {text-decoration: none; color: #666; background-image: linear-gradient(to right, rgba(100, 255, 100, 0.3), #fff);}
+.recipe-item-name::first-letter {text-transform: uppercase;}
+.content li:nth-child(1) {border-top: 0;}
+li button {float: right; margin-top: 5px;}
+.icon:before {font-family: "Font Awesome 5 Free"; display: inline-block; content: "\f0c1"; padding-right: 10px; color: rgba(0, 70, 0, 0.4);}
+
+.content {padding: 0 18px; display: none; overflow: hidden;}
+.content li {border-top: 1px solid #fff; width: 75%;}
+
+.select-box {background-color: #fafafa; width: 95%; clear: both; margin: 1em; padding: 1em; align-items: baseline; border: 1px solid #f0f0f0;}
+.select-box select {width: 40%; display: inline-block; margin: 0.5em; padding-top: 2px;}
+.select-box label {width: 20%; color: #666;}
+.select-box button {width: 25%;}
+
+.collapsible {font-weight: bold; color: #666; cursor: pointer; padding: 10px; width: 100%; border: none; text-align: left; outline: none; font-size: 13pt;}
+.active {border-left: 5px solid #080; border-bottom: 0;}
+button.collapsible:focus {outline: none;}
+.single {border-bottom: 1px dashed #0ae; color: #09d;}
+
+#ingredient-side .content, #ingredient-side .collapsible {background: #fff;}
+#ingredient-side .active, #ingredient-side .collapsible:hover {background-image: linear-gradient(to right, #fafafa, #fff);}
+#ingredient-side .collapsible::before {color: #080; content: "+ ";}
+
+.content .content {background-color: #fff; border-left: 5px solid #080; border-top: 0; border-bottom: 1px solid #090; padding-top: 1em;}
+.content .collapsible {background: #fff; font-size: 12pt;}
+.content .collapsible::before {color: #080; content: "+ ";}
+.content .collapsible:hover {background: #fafafa;}
+
+#recipe-side .content {background: #fff; border-left: 5px solid #08a;}
+#recipe-side .collapsible {background: #fff;}
+#recipe-side .collapsible::before {color: #08a; content: "+ ";}
+#recipe-side .active, #recipe-side .collapsible:hover {background-image: linear-gradient(to right, #fafafa, #fff);}
+#recipe-side .active {border-left: 5px solid #08a; border-bottom: 0;}
+
+#tree-container {padding-bottom: 10px; box-shadow: 5px 5px 5px #eee;}
+ul#tree-struct li {font-size: 11pt; color: #29d; font-weight: bold;}
+li span {font-size: 12pt; color: #888; font-weight: normal;}
+ul, #tree-struct {list-style-type: none;}
+#tree-struct {margin: 0; padding: 0;}
+.caret {cursor: pointer; user-select: none;}
+.caret::before {content: "\203A"; color: black; display: inline-block; margin-right: 6px;}
+.caret-down::before {transform: rotate(90deg);}
+.nested {display: none;}
+.li-active {display: block;}
+
