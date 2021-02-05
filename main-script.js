@@ -190,7 +190,6 @@ function addIngredientCategory()
     };
     data[0].push(input);
     localStorage.setItem('data', JSON.stringify(data));
-    document.getElementById('ingredient-category-name').value = '';
     location.reload();
 }
 
@@ -460,10 +459,10 @@ function deleteIngredient(ingredientId, categoryId)
                 if (data[1][i].Category == categoryKey && data[1][i].Name == fixWhiteSpace(ingredientKey))
                 {
                     data[1][i].Deleted = true;
-                    localStorage.setItem('data', JSON.stringify(data));
-                    location.reload();
                 }
             }
+            localStorage.setItem('data', JSON.stringify(data));
+            location.reload();
             return true;
         }
         else
